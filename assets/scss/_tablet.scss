@@ -1,0 +1,15 @@
+@media screen and (max-width: 800px) {
+  .rowcontainer {
+      flex-direction: column;
+      height: auto;
+
+      .card {
+          &:nth-child(odd) {
+              flex-direction: row;
+          }
+          &:nth-child(even) {
+              flex-direction: row-reverse;
+          }
+      }
+  }
+}

@@ -1,0 +1,100 @@
+
+.rowcontainer {
+  display: flex;
+  height: 300px;
+  // background-color: wheat;
+
+  &:nth-child(odd) { // toutes les lignes impaires
+      .card {
+          .photo_container {
+              &::before {
+                  // fleche droite
+                  @include arrow;
+                  right: 0;                    
+                  border-right: 10px solid red;
+              }
+          }
+      }
+  }
+
+  &:nth-child(even) {  // toutes les lignes paires
+      .card {
+          flex-direction: row-reverse;
+
+          .photo_container {
+              &::before {
+                  // fleche gauche
+                  @include arrow;
+                  left: 0;
+                  border-left: 10px solid red;
+              }
+          }
+      }
+  }
+}
+
+.card {
+  display: flex;
+  flex: 1;
+
+  &:hover {
+      cursor: pointer;
+      border: 2px solid red;
+      transition-duration: 0.2s;
+
+      .photo_container {
+          filter: none;
+      }
+
+      .txt {
+          
+          .presentation {
+              opacity: 1;
+          }
+
+          .name {
+              opacity: 0;
+          }
+      }
+  }
+}
+
+.photo_container {
+  position: relative;
+  flex: 1;
+  filter: grayscale(1);
+  overflow: hidden;
+  img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;  // pour les images de grrande taille
+      // object-fit: scale-down;  // pour les images de petite taille
+      // display: block;  
+  }
+}
+
+.presentation {
+  position: absolute;
+  padding: 10px;
+  transition-duration: 0.6s;
+  // background-color: tomato;
+  opacity: 0;
+}
+
+.name {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: darkblue;
+  // background-color: dodgerblue;
+}
+
+.txt {
+  flex: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}

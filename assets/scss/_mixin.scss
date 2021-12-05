@@ -1,0 +1,9 @@
+@mixin arrow {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 140px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
